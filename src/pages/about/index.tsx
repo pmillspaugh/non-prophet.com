@@ -1,14 +1,14 @@
 import Head from "next/head";
-import Link from "next/link";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function About() {
   return (
     <>
       <Head>
-        <title>non-prophet</title>
+        <title>non-prophet | About</title>
         <meta
           name="description"
           content="Independent clothing brand located in Brooklyn, NY. All profits are donated to the Equal Justice Initiative."
@@ -17,8 +17,8 @@ export default function Home() {
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <main className={inter.className}>
-        <h1>non-prophet</h1>
-        <Link href="/about">About</Link>
+        <h1>About.</h1>
+        <Link href="/">Home</Link>
       </main>
     </>
   );
