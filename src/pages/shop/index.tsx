@@ -1,7 +1,25 @@
+import { GetStaticProps } from "next";
 import Shop from "@components/Shop";
 import Head from "next/head";
 
-const ShopPage = () => {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const url = new URL(process.env.URL || "http://localhost:3000");
+  url.pathname = "/api/shop";
+
+  const response = await fetch(url.toString());
+  const { status, body } = await response.json();
+  const products = body.data.products.edges;
+
+  return {
+    props: {
+      products,
+    },
+  };
+};
+
+const ShopPage = ({ products }: { products: any }) => {
+  products.map((product: any) => console.log(product.node));
+
   return (
     <>
       <Head>
